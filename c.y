@@ -36,7 +36,7 @@ void found( const char *nonterminal, const char *value );
 
  /* program może być pusty (błąd semantyczny), zawierać błąd składniowy lub
     składać się z listy sekcji (SECTION_LIST) */
-Grammar: { yyerror( "Plik jest pusty" ); YYERROR; }
+Grammar: %empty { yyerror( "Plik jest pusty" ); YYERROR; }
 	| error
    | SECTION_LIST /*{ found( "SECTION_LIST", "" ); }*/ 
 	/* !!!!!!!! od tego miejsca należy zacząć !!!!!!!!!!!! */
@@ -196,7 +196,6 @@ INSTR_LIST: %empty
     zwiększenie wartości zmiennej (INCR) zakończone średnikiem,
     instrukcja warunkowa (IF_INSTR), pętla while (WHILE_INSTR),
     pętla do...while (DO_WHILE)  */
-
 INSTRUCTION: ';'
    | FUN_CALL
    | FOR_INSTR

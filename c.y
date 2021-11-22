@@ -148,7 +148,7 @@ S_FUNCTION: KW_VOID FUN_HEAD BLOCK { found( "S_FUNCTION", $<s>2 ); }
 /* FUN_HEAD */
  /* nagłówek funkcji rozpoczyna się identyfikatorem (IDENT), po którym w 
     nawiasach okrągłych znajdują się argumenty formalne (FORM_ARGS) */
-FUN_HEAD: IDENT '(' FORM_PARAMS ')' { found( "FUN_HEAD", $<s>1 ); }
+FUN_HEAD: IDENT '(' FORM_PARAMS ')' { found( "FUN_HEAD", $1 ); }
 ;
 /* FORM_ARGS */
  /* argumenty formalne mogą być słowem kluczowym void lub listą parametrów 
@@ -210,7 +210,7 @@ INSTRUCTION: ';'
  /* wywołanie funkcji składa się z identyfikatora oraz argumentów aktualnych
     (ACT_ARGS) umieszczonych w nawiasach okrągłych. Całość jest zakończona
     średnikiem. */
-FUN_CALL: IDENT '(' ACT_PARAMS ')' ';' { found( "FUN_CALL", $<s>1 ); }
+FUN_CALL: IDENT '(' ACT_PARAMS ')' ';' { found( "FUN_CALL", $1 ); }
 ;
 /* ACT_ARGS */
  /* argumenty aktualne mogą być puste lub zawierać listę argumentów
